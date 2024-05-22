@@ -15,9 +15,19 @@ Since Las Vegas was built in a desert, the points surrounding the city have 0 pr
 
 Due to her camera's limited memory, she wants to minimise the number of total photographs. Output the minimum number of photographs required and -1 if it is not possible to make a complete VR map.
 
+
+
+
 INPUT
+
 The first line contains 4 integers n, m, D and M(2 ![equation](https://latex.codecogs.com/svg.image?\leq) n,m ![equation](https://latex.codecogs.com/svg.image?\leq) 1000, 2 ![equation](https://latex.codecogs.com/svg.image?\leq) D ![equation](https://latex.codecogs.com/svg.image?\leq) 4 ![equation](https://latex.codecogs.com/svg.image?\times) 10^6, 4 ![equation](https://latex.codecogs.com/svg.image?\leq) M ![equation](https://latex.codecogs.com/svg.image?\leq) 10^9), where n is the number of rows, m is the number of columns, D is the diagonal distance upto which the camera can process land and M is the maximum permissible complexity of a chunk.
 
 The next n lines consist of m space separated integers aij(1 ![equation](https://latex.codecogs.com/svg.image?\leq) aij ![equation](https://latex.codecogs.com/svg.image?\leq) M) each representing the complexity of point(i,j).
 
 It is guaranteed that D ![equation](https://latex.codecogs.com/svg.image?\times) n ![equation](https://latex.codecogs.com/svg.image?\times) m ![equation](https://latex.codecogs.com/svg.image?\leq) 4 ![equation](https://latex.codecogs.com/svg.image?\times) 10^6.
+
+
+
+OUTPUT
+
+Output a single integer representing the minimum number of photos needed and -1 if it is not possible to make a complete map of the city.
