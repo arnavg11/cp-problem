@@ -1,38 +1,15 @@
-\documentclass{article}
+Note that for a given direction, we can calculate the time required to process each diagonal independently.
 
-% Language setting
-% Replace `english' with e.g. `spanish' to change the document language
-\usepackage[english]{babel}
+So for a given direction(say south-west), and a given diagonal, we make an array of these diagonal elements in the order in which they appear if we go along the chosen direction and add D-1 zeroes to the end of it if we happen to take an image at the south-west most point along the diagonal. 
 
-% Set page size and margins
-% Replace `letterpaper' with `a4paper' for UK/EU standard size
-\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+We then prefix it so that we can access the sum of complexities in constant time (pre-calculating the sum of the next D integer from each point will also work).
 
-% Useful packages
-\usepackage{amsmath}
-\usepackage{graphicx}
+Note that the first(left) element can only be covered if we take a photo standing on that point. Our next objective should be to cover the left most uncovered element. This can be done if a photo is taken from any element with an index in the range [min(0, i-D+1), i] where i is the index of the element being considered. 
 
-\title{Las Vegas}
-\author{Arnav Gupta}
-\date{}
-\begin{document}
-\maketitle
+Taking the photo from a point with the maximum index and a sum of complexities that is less than or equal to M will minimise the number of photos taken in that diagonal. If it is not possible to find an index in this range such that sum ![equation](https://latex.codecogs.com/svg.image?\leq&space;) M, then it is not possible to cover all points using that direction.
 
-\section{Tutorial}
-\paragraph{Note that for a given direction, we can calculate the time required to process each diagonal independently.}
+We then sum up the minimum number of photos required for each diagonal and get the result for a particular direction.
 
-\paragraph{So for a given direction(say south-west), and a given diagonal, we make an array of these diagonal elements in the order in which they appear if we go along the chosen direction and add D-1 zeroes to the end of it if we happen to take an image at the south-west most point along the diagonal. }
+We can calculate this sum for all 4 directions and output the minimum among these.
 
-\paragraph{We then prefix it so that we can access the sum of complexities in constant time (pre-calculating the sum of the next D integer from each point will also work).}
-
-\paragraph{Note that the first(left) element can only be covered if we take a photo standing on that point. Our next objective should be to cover the left most uncovered element. This can be done if a photo is taken from any element with an index in the range [min(0,i-D+1),i] where i is the index of the element being considered. }
-
-\paragraph{Taking the photo from a point with the maximum index and a sum of complexities that is less than or equal to M will minimise the number of photos taken in that diagonal. If it is not possible to find an index in this range such that sum$ \leq $M, then it is not possible to cover all points using that direction.}
-
-\paragraph{We then sum up the minimum number of photos required for each diagonal and get the result for a particular direction.}
-
-\paragraph{We can calculate this sum for all 4 directions and output the minimum among these.}
-
-\paragraph{This can be implemented in O(Dmn)}
-
-\end{document}
+This can be implemented in O(Dmn)
